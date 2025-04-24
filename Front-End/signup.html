@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация | feelKaz</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h3, h5 {
+      text-align: center;
+      color: #0e2d3c;
+    }
+    .welcome {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #0e2d3c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .line-text {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .line {
+      flex: 1;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .text {
+      padding: 0 10px;
+      font-size: 13px;
+      color: #555;
+    }
+    .code-input {
+      display: flex;
+      justify-content: space-between;
+    }
+    .code-input input {
+      width: 22%;
+      text-align: center;
+      font-size: 18px;
+    }
+    .hidden {
+      display: none;
+    }
+    .switch-link {
+      text-align: center;
+      font-size: 13px;
+      cursor: pointer;
+      color: #0e2d3c;
+    }
+    .checkbox-label {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-label input {
+      width: auto;
+      margin-right: 10px;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+    }
+    .password-container {
+  position: relative;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 10px;
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #0e2d3c;
+}
+
+/* Стили для иконки в состоянии скрытого пароля */
+.password-container i.fa-eye-slash {
+  color: #0e2d3c; /* Цвет для иконки "слэш" */
+}
+
+/* Стили для иконки в состоянии видимого пароля */
+.password-container i.fa-eye {
+  color: #0e2d3c; /* Цвет для иконки "глаз" */
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Email Login -->
+          <!-- Email Login -->
+          <div id="emailpage">
+            <h5>Войдите или зарегистрируйтесь</h5>
+            <p class="welcome">Добро пожаловать в <b>feelKaz</b></p>
+            <input type="email" placeholder="Электронный адрес" id="userEmail" onkeydown="if(event.key==='Enter') continueWithEmail()">
+            <div id="emailError" class="error"></div>
+            <button onclick="continueWithEmail()">Продолжить</button>
+            <div class="line-text">
+              <span class="line"></span>
+              <span class="text">или</span>
+              <span class="line"></span>
+            </div>
+            <button onclick="showPage('phonepage')">По номеру телефона</button>
+            <button><i class="fab fa-google"></i> С помощью Google</button>
+    
+            <!-- Ссылка на страницу входа после кнопки Google -->
+            <p class="switch-link" onclick="window.location.href='sign_in.html'">Уже есть аккаунт? Войти</p>
+          </div>
+    
+
+    <!-- Phone Login -->
+    <div id="phonepage" class="hidden">
+      <h5>Войдите или зарегистрируйтесь</h5>
+      <p class="welcome">Добро пожаловать в <b>feelKaz</b></p>
+      <input type="text" placeholder="Номер телефона" id="userPhone" onkeydown="if(event.key==='Enter') continueWithPhone()">
+      <div id="phoneError" class="error"></div>
+      <button onclick="continueWithPhone()">Продолжить</button>
+      <div class="line-text">
+        <span class="line"></span>
+        <span class="text">или</span>
+        <span class="line"></span>
+      </div>
+      <button onclick="showPage('emailpage')">По электронной почте</button>
+      <button><i class="fab fa-google"></i> С помощью Google</button>
+    </div>
+
+    <!-- Sign Up -->
+    <div id="signupPage" class="hidden">
+      <h3>Завершите регистрацию</h3>
+      <label>Имя</label>
+      <input type="text" placeholder="Имя" id="firstName" onkeydown="handleEnter(event, 'lastName')">
+      <label>Фамилия</label>
+      <input type="text" placeholder="Фамилия" id="lastName" onkeydown="handleEnter(event, 'month')">
+      <label>Электронная почта</label>
+      <input type="email" placeholder="Email" id="signupEmail" disabled>
+      <label>Дата рождения</label>
+      <div style="display:flex; gap:10px">
+        <select id="month"></select>
+        <select id="day"></select>
+        <select id="year"></select>
+      </div>
+      <label>Пароль</label>
+<div class="password-container">
+  <input type="password" placeholder="Пароль" id="password" onkeydown="handleEnter(event, 'confirmPassword')">
+  <i class="fa-solid fa-eye" id="togglePassword1" onclick="togglePassword('password', 'togglePassword1')"></i>
+</div>
+
+<label>Подтвердите пароль</label>
+<div class="password-container">
+  <input type="password" placeholder="Подтвердите пароль" id="confirmPassword">
+  <i class="fa-solid fa-eye" id="togglePassword2" onclick="togglePassword('confirmPassword', 'togglePassword2')"></i>
+</div>
+
+      <div id="passwordError" class="error"></div>
+      <label class="checkbox-label">
+        <input type="checkbox" id="agreeTerms"> Я согласна с условиями
+      </label>
+      <button onclick="submitSignup()">Зарегистрироваться</button>
+    </div>
+
+    <!-- Verification Code -->
+    <div id="verifyPage" class="hidden">
+      <h3>Введите код подтверждения</h3>
+      <p>Мы отправили код на <span id="verifyTarget"></span></p>
+      <div class="code-input">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+      </div>
+      <div id="codeError" class="error"></div>
+      <button onclick="checkCode()">Подтвердить</button>
+    </div>
+
+    <!-- Success -->
+    <div id="successPage" class="hidden">
+      <h3>Регистрация прошла успешно!</h3>
+    </div>
+  </div>
+
+  <script>
+    let generatedCode = '';
+    let currentContact = '';
+
+    function showPage(id) {
+      const pages = ['emailpage', 'phonepage', 'signupPage', 'verifyPage', 'successPage'];
+      pages.forEach(p => document.getElementById(p).classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function continueWithEmail() {
+      const email = document.getElementById('userEmail').value.trim();
+      const error = document.getElementById('emailError');
+      error.textContent = '';
+      const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+      if (!email || !emailRegex.test(email)) {
+        error.textContent = 'Введите корректный email';
+      } else {
+        document.getElementById('signupEmail').value = email;
+        currentContact = email;
+        showPage('signupPage');
+      }
+    }
+
+    function continueWithPhone() {
+      const phone = document.getElementById('userPhone').value.trim();
+      const error = document.getElementById('phoneError');
+      if (!/^[0-9]{10,15}$/.test(phone)) {
+        error.textContent = 'Введите корректный номер (только цифры)';
+      } else {
+        error.textContent = '';
+        document.getElementById('signupEmail').value = phone;
+        currentContact = phone;
+        showPage('signupPage');
+      }
+    }
+
+    function submitSignup() {
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const pass = document.getElementById('password').value;
+      const confirm = document.getElementById('confirmPassword').value;
+      const terms = document.getElementById('agreeTerms').checked;
+      const error = document.getElementById('passwordError');
+
+      if (!firstName || !lastName || !email || !pass || !confirm) {
+        error.textContent = 'Пожалуйста, заполните все поля';
+        return;
+      }
+
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/;
+      if (!passwordRegex.test(pass)) {
+        error.textContent = 'Пароль должен быть не менее 8 символов, содержать буквы, цифры и спец. символы';
+        return;
+      }
+
+      if (pass !== confirm) {
+        error.textContent = 'Пароли не совпадают';
+        return;
+      }
+
+      if (!terms) {
+        error.textContent = 'Вы должны согласиться с условиями';
+        return;
+      }
+
+      error.textContent = '';
+      sendVerificationCode(currentContact);
+      showPage('verifyPage');
+    }
+
+    function sendVerificationCode(target) {
+      generatedCode = Math.floor(1000 + Math.random() * 9000).toString();
+      document.getElementById('verifyTarget').textContent = target;
+      console.log('Код подтверждения:', generatedCode);
+    }
+// Код автоматического перехода между полями кода
+const codeInputs = document.querySelectorAll('#verifyPage .code-input input');
+
+codeInputs.forEach((input, index) => {
+  input.addEventListener('input', () => {
+    if (input.value.length === 1 && index < codeInputs.length - 1) {
+      codeInputs[index + 1].focus();
+    }
+
+    // Если все поля заполнены — автоматически проверяем код
+    const allFilled = Array.from(codeInputs).every(i => i.value.length === 1);
+    if (allFilled) {
+      checkCode();
+    }
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' && input.value === '' && index > 0) {
+      codeInputs[index - 1].focus();
+    }
+  });
+});
+
+    function checkCode() {
+  const inputs = document.querySelectorAll('#verifyPage .code-input input');
+  const code = Array.from(inputs).map(i => i.value).join('');
+  const error = document.getElementById('codeError');
+
+  // Отключаем проверку на правильность кода
+  // Вместо проверки сгенерированного кода, просто всегда считаем, что код правильный
+  error.textContent = ''; // Убираем сообщение об ошибке
+
+  // Переходим на страницу успеха
+  showPage('successPage');
+}
+
+  
+    function handleEnter(event, nextFieldId) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const next = document.getElementById(nextFieldId);
+        if (next) next.focus();
+      }
+    }
+
+    window.onload = function() {
+      const monthSelect = document.getElementById('month');
+      const daySelect = document.getElementById('day');
+      const yearSelect = document.getElementById('year');
+      const months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+      months.forEach((m, i) => {
+        const opt = document.createElement('option');
+        opt.value = i+1;
+        opt.text = m;
+        monthSelect.add(opt);
+      });
+      for(let d = 1; d <= 31; d++) {
+        const opt = document.createElement('option');
+        opt.value = d;
+        opt.text = d;
+        daySelect.add(opt);
+      }
+      const currentYear = new Date().getFullYear();
+      for(let y = currentYear; y >= 1900; y--) {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.text = y;
+        yearSelect.add(opt);
+      }
+    }
+    function togglePassword(fieldId, toggleId) {
+  const field = document.getElementById(fieldId);
+  const toggleIcon = document.getElementById(toggleId);
+  
+  if (field.type === 'password') {
+    field.type = 'text';
+    toggleIcon.classList.remove('fa-eye');
+    toggleIcon.classList.add('fa-eye-slash');
+  } else {
+    field.type = 'password';
+    toggleIcon.classList.remove('fa-eye-slash');
+    toggleIcon.classList.add('fa-eye');
+  }
+}
+
+  </script>
+</body>
+</html>

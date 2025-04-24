@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход | feelKaz</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h3, h5 {
+      text-align: center;
+      color: #0e2d3c;
+    }
+    .welcome {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #0e2d3c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .line-text {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .line {
+      flex: 1;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .text {
+      padding: 0 10px;
+      font-size: 13px;
+      color: #555;
+    }
+    .switch-link {
+      text-align: center;
+      font-size: 13px;
+      cursor: pointer;
+      color: #0e2d3c;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+    }
+    .password-container {
+      position: relative;
+    }
+
+    .password-container input {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .password-container i {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #0e2d3c;
+    }
+
+    .password-container i.fa-eye-slash {
+      color: #0e2d3c;
+    }
+
+    .password-container i.fa-eye {
+      color: #0e2d3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sign In -->
+    <div id="signInPage">
+      <h3>Вход в аккаунт</h3>
+      <p class="welcome">Добро пожаловать в <b>feelKaz</b></p>
+      
+      <!-- Email Login -->
+      <label>Электронная почта</label>
+      <input type="email" placeholder="Электронный адрес" id="signInEmail">
+      <div id="emailError" class="error"></div>
+
+      <!-- Пароль -->
+      <label>Пароль</label>
+      <div class="password-container">
+        <input type="password" placeholder="Пароль" id="signInPassword">
+        <i class="fa-solid fa-eye" id="togglePassword"></i>
+      </div>
+      <div id="passwordError" class="error"></div>
+
+      <button onclick="signIn()">Войти</button>
+
+      <div class="line-text">
+        <span class="line"></span>
+        <span class="text">или</span>
+        <span class="line"></span>
+      </div>
+      
+      <!-- Переключение на страницу регистрации -->
+      <p class="switch-link" onclick="showSignupPage()">У вас нет аккаунта? Зарегистрироваться</p>
+    </div>
+  </div>
+
+  <script>
+    function signIn() {
+      const email = document.getElementById('signInEmail').value.trim();
+      const password = document.getElementById('signInPassword').value.trim();
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+
+      emailError.textContent = '';
+      passwordError.textContent = '';
+
+      // Email validation
+      if (!email || !/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(email)) {
+        emailError.textContent = 'Введите корректный email';
+        return;
+      }
+
+      // Password validation
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/;
+      if (!password) {
+        passwordError.textContent = 'Введите пароль';
+        return;
+      } else if (!passwordRegex.test(password)) {
+        passwordError.textContent = 'Пароль должен быть не менее 8 символов, содержать буквы, цифры и спец. символы';
+        return;
+      }
+
+      console.log('Вход с email:', email, 'Пароль:', password);
+      alert('Вход успешный!');
+      window.location.href = 'destination.html';
+    }
+
+    function showSignupPage() {
+      window.location.href = 'signup.html';
+    }
+
+    // Показать/скрыть пароль
+    document.getElementById('togglePassword').addEventListener('click', function () {
+      const passwordInput = document.getElementById('signInPassword');
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+</body>
+</html>

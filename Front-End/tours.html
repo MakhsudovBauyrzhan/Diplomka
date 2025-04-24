@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Website</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="destination.html">Destination</a>
+        <a href="tours.html" class="active">Tours</a>
+        <a href="top_trips.html">Top trips</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Find places and things to do" />
+        <button>Search</button>
+      </div>
+
+      <div class="nav-right">
+        <a href="add_tour.html" class="add-btn">Add Tour</a>
+        <a href="profile.html" class="profile-btn">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Region filters -->
+    <section class="region-filters">
+      <button class="region-btn" onclick="showRegion('west')">West KZ</button>
+      <button class="region-btn" onclick="showRegion('south')">South KZ</button>
+      <button class="region-btn" onclick="showRegion('north')">North KZ</button>
+      <button class="region-btn active" onclick="showRegion('east')">Eastern KZ</button>
+    </section>
+
+    <!-- Tour cards -->
+    <section class="cards-container" id="cards">
+        <!-- Eastern KZ -->
+        <a href="semey.html" class="card region-east">
+          <img src="images/Semey_Bridge.jpg" alt="Semey" />
+          <div class="card-info">
+            <strong>Semey</strong>
+            <p>04 region</p>
+          </div>
+        </a>
+      
+        <a href="oskemen.html" class="card region-east">
+          <img src="images/oskemen.jpg" alt="Oskemen" />
+          <div class="card-info">
+            <strong>Oskemen</strong>
+            <p>15 region</p>
+          </div>
+        </a>
+      
+        <!-- West KZ -->
+        <a href="aktau.html" class="card region-west" style="display:none">
+          <img src="images/aktau.jpg" alt="Aktau" />
+          <div class="card-info">
+            <strong>Aktau</strong>
+            <p>12 region</p>
+          </div>
+        </a>
+      
+        <a href="oral.html" class="card region-west" style="display:none">
+          <img src="images/oral.jpg" alt="Oral" />
+          <div class="card-info">
+            <strong>Oral</strong>
+            <p>07 region</p>
+          </div>
+        </a>
+      
+        <a href="aktobe.html" class="card region-west" style="display:none">
+          <img src="images/aktobe.jpg" alt="Aktobe" />
+          <div class="card-info">
+            <strong>Aktobe</strong>
+            <p>03 region</p>
+          </div>
+        </a>
+      
+        <a href="atyrau.html" class="card region-west" style="display:none">
+          <img src="images/atyrau.jpg" alt="Atyrau" />
+          <div class="card-info">
+            <strong>Atyrau</strong>
+            <p>06 region</p>
+          </div>
+        </a>
+      
+        <!-- South KZ -->
+        <a href="taraz.html" class="card region-south" style="display:none">
+          <img src="images/taraz.jpg" alt="Taraz" />
+          <div class="card-info">
+            <strong>Taraz</strong>
+            <p>08 region</p>
+          </div>
+        </a>
+      
+        <a href="kyzylorda.html" class="card region-south" style="display:none">
+          <img src="images/kyzylorda.jpg" alt="Kyzylorda" />
+          <div class="card-info">
+            <strong>Kyzylorda</strong>
+            <p>11 region</p>
+          </div>
+        </a>
+      
+        <a href="turkistan.html" class="card region-south" style="display:none">
+          <img src="images/turkistan.jpg" alt="Turkistan" />
+          <div class="card-info">
+            <strong>Turkistan</strong>
+            <p>13 region</p>
+          </div>
+        </a>
+      
+        <a href="shymkent.html" class="card region-south" style="display:none">
+          <img src="images/shymkent.jpg" alt="Shymkent" />
+          <div class="card-info">
+            <strong>Shymkent</strong>
+            <p>10 region</p>
+          </div>
+        </a>
+      
+        <!-- North KZ -->
+        <a href="pavlodar.html" class="card region-north" style="display:none">
+          <img src="images/pavlodar.jpg" alt="Pavlodar" />
+          <div class="card-info">
+            <strong>Pavlodar</strong>
+            <p>09 region</p>
+          </div>
+        </a>
+      
+        <a href="petropavl.html" class="card region-north" style="display:none">
+          <img src="images/petropavl.jpg" alt="Petropavl" />
+          <div class="card-info">
+            <strong>Petropavl</strong>
+            <p>05 region</p>
+          </div>
+        </a>
+      
+        <a href="astana.html" class="card region-north" style="display:none">
+          <img src="images/astana.jpg" alt="Astana" />
+          <div class="card-info">
+            <strong>Astana</strong>
+            <p>01 region</p>
+          </div>
+        </a>
+      
+        <a href="almaty.html" class="card region-north" style="display:none">
+          <img src="images/almaty.jpg" alt="Almaty" />
+          <div class="card-info">
+            <strong>Almaty</strong>
+            <p>02 region</p>
+          </div>
+        </a>
+      </section>
+      
+  </main>
+
+  <footer class="footer">
+    <hr>
+    <div class="footer-content">
+      <div class="footer-links">
+          <p><a href="#">About Us</a></p>
+          <p><a href="#">FAQ</a></p>
+          <p><a href="#">Terms & conditions</a></p>
+      </div>
+      <div class="footer-links">
+          <p><a href="#">All tours</a></p>
+          <p><a href="#">Destinations</a></p>
+      </div>
+      <div class="footer-contact">
+          <p><a>8 707 989 111</a></p>
+          <p><a href="mailto:feolkaz@gmail.com">feolkaz@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showRegion(region) {
+      const allCards = document.querySelectorAll(".card");
+      allCards.forEach(card => card.style.display = "none");
+
+      const regionCards = document.querySelectorAll(".region-" + region);
+      regionCards.forEach(card => card.style.display = "block");
+
+      const buttons = document.querySelectorAll(".region-btn");
+      buttons.forEach(btn => btn.classList.remove("active"));
+
+      const clicked = [...buttons].find(btn => btn.textContent.toLowerCase().includes(region));
+      if (clicked) clicked.classList.add("active");
+    }
+  </script>
+</body>
+</html>
+
+<style>
+     *{
+margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+ }
+
+body {
+   margin: 0;
+  padding: 0;
+  background-color: white;
+}
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 38px;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+ 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #00263d;
+  background-color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #00263d;
+  color: white;
+}
+
+.nav-links .active {
+  background-color: #00263d;
+  color: white;
+}
+.nav-right .active {
+  background-color: #00263d;
+  color: white;
+}
+
+.search-bar {
+    display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 10px 30px;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.search-bar button {
+  border: none;
+  background-color: #00263d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: white;
+  color: #00263d;
+  transition: background-color 0.3s;
+  border: 2px solid white;
+
+}
+
+.nav-right a:hover {
+  background-color: #00263d;
+  color: white;
+}
+
+.region-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 20px 0;
+  
+}
+
+.region-btn {
+  background-color: transparent;
+  color: #00263d;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.region-btn:hover {
+  background-color: #00263d;
+  color: white;
+
+}
+
+.region-btn.active {
+    background-color: white;
+    color: #00263d;
+    
+}
+
+/* ======================== */
+/*         Карточки         */
+/* ======================== */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 10px;
+  text-align: center;
+}
+a.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.footer {
+    padding: 10px 20px;
+    background-color: #0d2b3e;
+  }
+
+  .footer hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #0d2b3e;
+  }
+
+  .footer-links p,
+  .footer-contact p {
+    margin: 15px 0;
+  }
+
+  .footer-links a,
+  .footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .footer-contact a:hover,
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+</style>

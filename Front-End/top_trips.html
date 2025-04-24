@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Website</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="destination.html">Destination</a>
+        <a href="tours.html">Tours</a>
+        <a href="top_trips.html"  class="active">Top trips</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Find places and things to do" />
+        <button>Search</button>
+      </div>
+
+      <div class="nav-right">
+        <a href="add_tour.html" class="add-btn">Add Tour</a>
+        <a href="profile.html" class="profile-btn">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+
+<div class="popular-trips">
+    <h2>Popular trips</h2>
+    <div class="trip-cards-container">
+      <div class="trip-card">
+        <div class="image-container">
+          <img src="images/jpg.jpg" alt="Kok Zhailau">
+        </div>
+        <div class="trip-info">
+          <h3>Kok Zhailau</h3>
+          <p><span class="icon"><img src="images/label.png" width="15"></span> price: 16 000kz</p>
+          <p><span class="availability available"></span> Available spots</p>
+          <p><span class="icon"><img src="images/worldwide.png" width="15"></span> Agency: Nomad Travel</p>
+          <a href="ybykty_page.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <div class="image-container">
+          <img src="images/kok_jailau1.jpg" alt="Kok Zhailau">
+        </div>
+        <div class="trip-info">
+          <h3>Kok Zhailau</h3>
+          <p><span class="icon"><img src="images/label.png" width="15"></span> price: 16 000kz</p>
+          <p><span class="availability available"></span> Available spots</p>
+          <p><span class="icon"><img src="images/worldwide.png" width="15"></span> Agency: Nomad Travel</p>
+          <a href="ybykty_page.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+  
+      <div class="trip-card">
+        <div class="image-container">
+          <img src="images/kolsay.jpeg" alt="Sharyn, Kaindy, Kolsay">
+        </div>
+        <div class="trip-info">
+          <h3>Sharyn, Kaindy, Kolsay</h3>
+          <p><span class="icon"><img src="images/label.png" width="15"></span> price: 20 000kz</p>
+          <p><span class="availability available"></span> Available spots</p>
+          <p><span class="icon"><img src="images/worldwide.png" width="15"></span> Agency: trip.kz</p>
+          <a href="ybykty_page.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<style>
+  *{
+margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+ }
+
+body {
+   margin: 0;
+  padding: 0;
+  background-color: white;
+}
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 38px;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+ 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #00263d;
+  background-color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #00263d;
+  color: white;
+}
+
+.nav-links .active {
+  background-color: #00263d;
+  color: white;
+}
+.nav-right .active {
+  background-color: #00263d;
+  color: white;
+}
+
+.search-bar {
+    display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 10px 30px;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+
+
+}
+
+.search-bar button {
+  border: none;
+  background-color: #00263d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: white;
+  color: #00263d;
+  transition: background-color 0.3s;
+  border: 2px solid white;
+
+}
+
+.nav-right a:hover {
+  background-color: #00263d;
+  color: white;
+}
+  .popular-trips {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    text-align: center;
+}
+
+.popular-trips h2 {
+    color: #00263d;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.trip-cards-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.trip-card {
+background-image: linear-gradient(to top right, #00263d, #293241, #002630);
+border-radius: 15px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 300px;
+display: flex;
+flex-direction: column;
+}
+
+.image-container {
+height: 180px;
+border-color: #ffffff;
+}
+
+.image-container img {
+width: 75%;
+height: 80%;
+object-fit: cover;
+align-items: center;
+margin: 8%;
+border-radius: 20px;
+border-width: 2px; /* Толщина рамки */
+border-style: solid; /* Стиль рамки (solid, dashed, dotted, double и др.) */
+border-color: #ffffff; /* Цвет рамки */
+
+}
+
+.trip-info {
+padding: 20px;
+text-align: left;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.trip-info h3 {
+color: #ffffff;
+margin-top: 0;
+margin-bottom: 5px;
+}
+
+.trip-info p {
+color: #ffffff;
+font-size: 15px;
+margin-bottom: 0;
+}
+
+.icon {
+    vertical-align: middle;
+}
+
+.availability {
+display: inline-block;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+margin-right: 5px;
+}
+
+.available {
+background-color: #2ecc71;
+}
+
+.unavailable {
+background-color: #e74c3c;
+}
+
+.view-details-btn {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #00263d;
+  border: 2px solid #00263d;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background-color: #00263d;
+  color: #ffffff;
+}
+
+
+.view-details-btn:hover {
+background-color: #adaeb0; /* Цвет при наведении */
+}
+
+
+</style>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Tour</title>
+  <style>
+    
+    *{
+margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+ }
+
+body {
+   margin: 0;
+  padding: 0;
+  background-color: white;
+}
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 38px;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+ 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #00263d;
+  background-color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #00263d;
+  color: white;
+}
+
+.nav-links .active {
+  background-color: #00263d;
+  color: white;
+}
+.nav-right .active {
+  background-color: #00263d;
+  color: white;
+}
+
+.search-bar {
+    display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 10px 30px;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  width: 100%;
+}
+
+.search-bar button {
+  border: none;
+  background-color: #00263d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: white;
+  color: #00263d;
+  transition: background-color 0.3s;
+  border: 2px solid white;
+
+}
+
+.nav-right a:hover {
+  background-color: #00263d;
+  color: white;
+}
+.body2 {
+      margin: 40px;
+      background-color: #fff;
+      color: #1a1a1a;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 4px solid #0b3b52;
+      border-radius: 15px;
+    }
+    .form-section2 {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      font-size: larger;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .upload-box {
+      width: 100%;
+      max-width: 400px;
+      height: 250px;
+      border: 2px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+    }
+
+    .upload-box img {
+      width: 60px;
+    }
+
+    .upload-box button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    background: url('images/arrow-down-sign-to-navigate.png') no-repeat;
+    background-size: contain;
+    color: transparent;
+    cursor: pointer;
+    }
+    .tour-date{
+        padding: 9px;
+        max-width: 200px;
+        margin-top: 5px;
+        border-radius: 12px;
+      border: 1px solid #ccc;
+    }
+    .price-input {
+      max-width: 200px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .profile-button {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+
+    .two-columns {
+      display: flex;
+      gap: 20px;
+    }
+
+    .two-columns > div {
+      flex: 1;
+    }
+    .itn-btn{
+        border-radius: 25px;
+        background-color: #fff;
+        width: 160px;
+        padding: 8px;
+        color: #022f3f;
+        cursor: pointer;
+    }
+
+    .submit-button {
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      padding: 12px;
+      background-color: #022f3f;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    
+    
+  .footer {
+    padding: 10px 20px;
+    background-color: #0d2b3e;
+  }
+
+  .footer hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #0d2b3e;
+  }
+
+  .footer-links p,
+  .footer-contact p {
+    margin: 15px 0;
+  }
+
+  .footer-links a,
+  .footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .footer-contact a:hover,
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="destination.html" >Destination</a>
+            <a href="tours.html" >Tours</a>
+            <a href="top_trips.html">Top Trips</a>
+          </div>
+    
+          <div class="search-bar">
+            <input type="text" placeholder="Find places and things to do" />
+            <button>Search</button>
+          </div>
+    
+          <div class="nav-right">
+            <a href="add_tour.html" class="active">Add Tour</a>
+            <a href="profile.html" class="profile-btn">Profile</a>
+          </div>
+        </nav>
+      </header>
+<div class="body2">
+  <div class="form-section">
+    <label for="tour-name">Tours name</label>
+    <input type="text" id="tour-name" placeholder="Enter tour name..." />
+  </div>
+
+  <div class="form-section2">
+    <label>Upload tour photos</label>
+    <div class="upload-box">
+      <div style="text-align: center;">
+        <img src="images/camera.png" alt="Camera icon">
+        <div>
+          <button>Add photos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <label for="price">Price</label>
+    <input type="text" id="price" class="price-input" placeholder="$" />
+  </div>
+
+  <div class="form-section">
+    <label for="description">Brief description</label>
+    <textarea id="description" placeholder="Tell us about the tour..."></textarea>
+    <div class="note">Do not include price, phone numbers, e-mail or other contact information in the description.</div>
+  </div>
+
+  <div class="form-section">
+    <label for="tour-date">Tour dates</label>
+    <input type="date" id="tour-date" class="tour-date">
+  </input>
+  </div>
+
+  <div class="form-section">
+    <h3>About the tour</h3>
+    <div class="two-columns">
+      <input type="text" placeholder="Duration: 1 day" />
+      <input type="text" placeholder="Group size: 2-25 people" />
+    </div>
+    <br />
+    <input type="text" placeholder="Route difficulty level" />
+    <br /><br />
+    <input type="text" placeholder="Location: Almaty, near the 'Medau' stadium" />
+  </div>
+
+  <div class="form-section">
+    <h3>Tour Itinerary:</h3>
+    <div class="two-columns">
+      <input type="text" placeholder="8:00 - 8:30" />
+      <input type="text" placeholder="Arrival at the meeting point" />
+    </div>
+    <br />
+    <button class="itn-btn">Add tour itinerary</button>
+  </div>
+
+  <div class="form-section two-columns">
+    <div>
+      <label>Included in the Price</label>
+      <input type="text" placeholder="What's included..." />
+    </div>
+    <div>
+      <label>Additional Options</label>
+      <input type="text" placeholder="Optional extras..." />
+    </div>
+  </div>
+
+  <button class="submit-button">Submit Ad</button>
+  <p style="text-align: center; font-size: 12px; color: #666;">By clicking on the 'Post ad' button, you agree to the rules for posting ads.</p>
+</div>
+<footer class="footer">
+  <hr>
+  <div class="footer-content">
+    <div class="footer-links">
+        <p><a href="#">About Us</a></p>
+        <p><a href="#">FAQ</a></p>
+        <p><a href="#">Terms & conditions</a></p>
+    </div>
+    <div class="footer-links">
+        <p><a href="#">All tours</a></p>
+        <p><a href="#">Destinations</a></p>
+    </div>
+    <div class="footer-contact">
+        <p><a>8 707 989 111</a></p>
+        <p><a href="mailto:feolkaz@gmail.com">feolkaz@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
