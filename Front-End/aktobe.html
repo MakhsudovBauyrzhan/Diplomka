@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Website</title>
+  <style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+   margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+ 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #00263d;
+  background-color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 2px solid white;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #00263d;
+  color: white;
+}
+
+.nav-links .active {
+  background-color: #00263d;
+  color: white;
+}
+
+.search-bar {
+    display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 10px 30px;
+  flex-grow: 1;
+  max-width: 400px;
+ 
+
+}
+
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  border: none;
+  background-color: #00263d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-right .add-btn,
+.nav-right .profile-btn {
+  display: inline-flex;  
+  justify-content: center; 
+  align-items: center;  
+  padding: 8px 15px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #00263d;
+  border: 2px solid #00263d;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-right .add-btn:hover,
+.nav-right .profile-btn:hover {
+  background-color: #00263d;
+  color: #ffffff;
+}
+
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 90%;  
+  transform: translateX(-50%);         
+  top: 70px; 
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px ;
+  width: 200px;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #0a1f33;
+}
+
+.city-section {
+  background-color: #00263d;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+  max-width: 1000px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.city-section h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.city-section p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.5;
+}
+
+.bridge-image img {
+  max-height: 160px;
+  border-radius: 16px;
+}
+
+.attractions {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.attractions h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+}
+.profile-icon {
+    width: 18px;
+    height: 18px;
+    background-color: #00394f;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.card-text {
+  max-width: 70%;
+  text-align: left;
+}
+
+.card-text h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-text p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card img {
+  max-width: 120px;
+  max-height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.life-culture {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.life-culture h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.card2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #00263d;
+  color: #fff;
+}
+
+.card-text2 {
+  max-width: 70%;
+  text-align: left;
+}
+
+.card-text2 h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-text2 p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card2 img {
+  max-width: 120px;
+  max-height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.bridge-info {
+  text-align: center;
+  padding: 20px;
+}
+
+.bridge-info h2 {
+  color: #333;
+  margin-bottom: 13px;
+}
+
+.bridge-info h3 {
+  color: #00263d;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.bridge-info p {
+  color: #00263d;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.facts-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.fact-card {
+  background-color: #00263d;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.fact-card .icon {
+  font-size: 3em;
+  color: #007bff;
+  margin-bottom: 10px;
+  margin-top: 13px;
+}
+
+
+.fact-card .value {
+  color: white;
+  font-size: 16px;
+
+}
+.fact-card2 {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.fact-card2 .icon {
+  font-size: 3em;
+  color: #007bff;
+  margin-bottom: 10px;
+  margin-top: 13px;
+}
+
+.fact-card2 .value {
+  color: #333;
+  font-size: 16px;
+}
+/* Стиль для последней карточки, чтобы выровнять текст */
+.fact-card:last-child .label {
+  display: block; /* Занимает всю ширину, чтобы выровнять текст ниже */
+}
+
+.footer {
+    padding: 10px 20px;
+    background-color: #0d2b3e;
+  }
+
+  .footer hr {
+    border: none;
+    border-top: 1px solid white;
+    margin-bottom: 10px;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #0d2b3e;
+  }
+
+  .footer-links p,
+  .footer-contact p {
+    margin: 15px 0;
+  }
+
+  .footer-links a,
+  .footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .footer-contact a:hover,
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+</style>
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="destination.html" class="active">Destination</a>
+        <a href="tours.html" >Tours</a>
+        <a href="top_trips.html">Top Trips</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Find places and things to do" />
+        <button>Search</button>
+      </div>
+
+      <div class="nav-right">
+        <a href="add_tour.html" class="add-btn">Add Tour</a>
+        <a href="#" class="profile-btn" onclick="toggleDropdown()"><div class="profile-icon">K</div>Profile</a>
+
+
+<!-- Выпадающее меню -->
+<div id="dropdown" class="dropdown-menu">
+  <a href="trips.html">Trips</a>
+  <a href="my_announcement.html">My Announcement</a>
+  <a href="Help_center.html">Help Center</a>
+  <a href="my_reservation.html">My Reservation</a>
+  <a href="Settings.html">Settings</a>
+  <a href="#">Exit</a>
+</div>
+
+    </nav>
+  </header>
+
+  <section class="city-section">
+    <h1>Aktobe</h1>
+    <p>
+      Aktobe, located in western Kazakhstan, is a major industrial and cultural hub.<br />
+      The city is known for its dynamic development, educational institutions, and a mix of modern and historical architecture.
+    </p>
+    <div class="bridge-image">
+      <img src="images/aktobe.jpeg" alt="Aktobe City View" />
+    </div>
+  </section>
+  
+  <section class="attractions">
+    <h2>Natural Attractions and Recreation</h2>
+  
+    <div class="card">
+      <div class="card-text">
+        <h3>Nurgasyr Lake</h3>
+        <p>
+          Nurgasyr Lake is a favorite local spot for leisure, offering scenic views, walking paths, and family-friendly areas for recreation.
+        </p>
+      </div>
+      <img src="images/aktobe_lake.jpeg" alt="Nurgasyr Lake in Aktobe" />
+    </div>
+  
+    <div class="card">
+      <div class="card-text">
+        <h3>Martuk Hills</h3>
+        <p>
+          Located near Aktobe, the Martuk Hills are ideal for hiking and enjoying peaceful nature with rolling landscapes and steppe views.
+        </p>
+      </div>
+      <img src="images/martuk_hills.jpeg" alt="Martuk Hills near Aktobe" />
+    </div>
+  </section>
+  
+  <section class="life-culture">
+    <h2>City Life and Culture</h2>
+  
+    <div class="card2">
+      <div class="card-text2">
+        <h3>Regional Drama Theater</h3>
+        <p>
+          The Aktobe Drama Theater hosts a variety of performances, from classical plays to modern productions in both Kazakh and Russian.
+        </p>
+      </div>
+      <img src="images/aktobe_theater.jpeg" alt="Drama Theater in Aktobe" />
+    </div>
+  
+    <div class="card2">
+      <div class="card-text2">
+        <h3>City Squares and Parks</h3>
+        <p>
+          Aktobe’s city center features spacious parks and public squares, where locals gather for events, walks, and social activities.
+        </p>
+      </div>
+      <img src="images/aktobe_park.jpeg" alt="City Park in Aktobe" />
+    </div>
+  </section>
+  
+  <div class="bridge-info">
+    <h2>Did you know</h2>
+    <h3>Aktobe’s Meaning and History</h3>
+    <p>"The name 'Aktobe' means 'White Hill' in Kazakh, referring to the original hill where the city was founded."</p>
+    <div class="facts-container">
+      <div class="fact-card">
+        <div class="icon"><img src="images/ruler.png" width="50" height="50"></div>
+        <p class="value">Founded: 1869</p>
+      </div>
+      <div class="fact-card2">
+        <div class="icon"><img src="images/icons8-маркер.gif"></div>
+        <p class="value">Location: Western Kazakhstan</p>
+      </div>
+      <div class="fact-card">
+        <div class="icon"><img src="images/calendar.png" width="50" height="50"></div>
+        <p class="value">Originally called Aktyubinsk (until 1999)</p>
+      </div>
+      <div class="fact-card2">
+        <div class="icon"><img src="images/icons8-включить-свет.gif"></div>
+        <p class="value">Important center for metallurgy and education.</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  </div>
+  <footer class="footer">
+    <hr>
+    <div class="footer-content">
+      <div class="footer-links">
+          <p><a href="#">About Us</a></p>
+          <p><a href="#">FAQ</a></p>
+          <p><a href="#">Terms & conditions</a></p>
+      </div>
+      <div class="footer-links">
+          <p><a href="#">All tours</a></p>
+          <p><a href="#">Destinations</a></p>
+      </div>
+      <div class="footer-contact">
+          <p><a>8 707 989 111</a></p>
+          <p><a href="mailto:feolkaz@gmail.com">feolkaz@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
+  </body>
+
+
+  
+<script>
+  function toggleDropdown() {
+    var menu = document.getElementById('dropdown');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+  
+  window.onclick = function(event) {
+    if (!event.target.matches('.profile-btn')) {  // Use the correct class name here
+      var dropdowns = document.getElementsByClassName('dropdown-menu');
+      for (var i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].style.display = 'none';
+      }
+    }
+  }
+  
+  </script>
