@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>GoTrip - Explore Kazakhstan</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -19,8 +20,19 @@
 
 
       <div class="nav-right">
-        <a href="add_tour.html"class="add-btn">Add Tour</a>
-        <a href="profile.html"  class="profile-btn">Profile</a>
+        <a href="add_tour.html" class="add-btn">Add Tour</a>
+        <a href="#" class="profile-btn" onclick="toggleDropdown()"><div class="profile-icon">K</div>Profile</a>
+
+<!-- Выпадающее меню -->
+<div id="dropdown" class="dropdown-menu">
+  <a href="trips.html">Trips</a>
+  <a href="my_announcement.html">My Announcement</a>
+  <a href="Help_center.html">Help Center</a>
+  <a href="my_reservation.html">My Reservation</a>
+  <a href="Settings.html">Settings</a>
+  <a href="#">Exit</a>
+</div>
+<div id="google_translate_element"></div>
       </div>
     </nav>
   </header>
@@ -28,9 +40,27 @@
 
 
 
+
+<script>
+function toggleDropdown() {
+  var menu = document.getElementById('dropdown');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.profile-btn')) {  // Use the correct class name here
+    var dropdowns = document.getElementsByClassName('dropdown-menu');
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].style.display = 'none';
+    }
+  }
+}
+
+</script>
+
   <header class="hero-header">
     <div class="overlay">
-      <h1>GoTrip</h1>
+      <h1>Go Tour</h1>
       <h1>Explore the Beauty of Kazakhstan</h1>
       <p>Discover nature, culture, and adventure in Central Asia's hidden gem</p>
     </div>
@@ -39,86 +69,104 @@
   <section class="section" id="top-tours">
     <h2>Top Tours</h2>
     <div class="card-container">
+    
+      <a href="butakovsky_waterfall.html" class="card">
+        <img src="images/butakovsky.jpg" alt="Butakovsky Waterfall">
+        <h3>Butakovsky Waterfall</h3>
+      </a>
+    
+      <a href="sharyn.html" class="card">
+        <img src="images/sharyn.jpg" alt="Sharyn, Kaindy, Kolsay">
+        <h3>Sharyn, Kaindy, Kolsay</h3>
+      </a>
+    
+      <a href="kok_zhailau.html" class="card">
+        <img src="images/kok_zhailau.jpg" alt="Kok Zhailau">
+        <h3>Kok Zhailau</h3>
+      </a>
+    
+      <a href="bogdanovich_glacier.html" class="card">
+        <img src="images/almaty-bogdanovich-glacier-and-shymbulak-ski-resort-hike-4802218.webp" alt="Bogdanovich Gracier">
+        <h3>Bogdanovich Gracier</h3>
+      </a>
+    
+      <a href="shymbulak.html" class="card">
+        <img src="images/Shymbulak.jpg" alt="Shymbulak">
+        <h3>Shymbulak</h3>
+      </a>
+    
+      <a href="zerenda.html" class="card">
+        <img src="images/zerenda.png" alt="Zerenda">
+        <h3>Zerenda</h3>
+      </a>
+    
+      <a href="bayanauyl.html" class="card">
+        <img src="images/bayanauyl.png" alt="Bayanaul">
+        <h3>Bayanaul</h3>
+      </a>
+      <a href="balkhash.html" class="card">
+        <img src="images/balkash.png" alt="Balkhash">
+        <h3>Balkhash</h3>
+      </a>
+    
+      <a href="baiterek.html" class="card">
+        <img src="images/baiterek.png" alt="Sightseeing Tour of Astana">
+        <h3>Sightseeing Tour of Astana</h3>
+      </a>
+    
+      <a href="museum.html" class="card">
+        <img src="images/museum.png" alt="Cultural and Historical Museum Tour">
+        <h3>Cultural and Historical Museum Tour</h3>
+      </a>
+    
+      <a href="ulytau.html" class="card">
+        <img src="images/ulytau.png" alt="Ulytau">
+        <h3>Baikonur Cosmodrome</h3>
+      </a>
+    
       <a href="ybykty_page.html" class="card">
         <img src="images/ybykty.jpg" alt="Ybykty">
         <h3>Ybykty</h3>
       </a>
-    
-      <a href="charyn.html" class="card">
-        <img src="images/charyn-canyon.jpg" alt="Charyn Canyon">
-        <h3>Charyn Canyon</h3>
+
+      <a href="kyzylkum.html" class="card">
+        <img src="images/kyzylkum (1).png" alt="Kyzylkum Abd Bozzhyra">
+        <h3>Kyzylkum Abd Bozzhyra</h3>
       </a>
     
-      <a href="kolsay.html" class="card">
-        <img src="images/kolsay.jpeg" alt="Kolsay Lake">
-        <h3>Kolsay Lake</h3>
+      <a href="peschany_cape.html" class="card">
+        <img src="images/cape.png" alt="Peschany Cape">
+        <h3>Peschany Cape</h3>
       </a>
     
-      <a href="baikonur.html" class="card">
-        <img src="images/baikonur-cosmodrome1.jpg" alt="Baikonur Cosmodrome">
-        <h3>Baikonur Cosmodrome</h3>
+      <a href="kapamsai.html" class="card">
+        <img src="images/kapamsai.png" alt="Kapamsai and Shakpak Ata">
+        <h3>Kapamsai and Shakpak Ata</h3>
       </a>
     
-      <a href="khoja.html" class="card">
-        <img src="images/khoja_ahmed.jpg" alt="Mausoleum of Khoja Ahmed Yasawi">
+      <a href="blue_lagoon.html" class="card">
+        <img src="images/lagoom.png" alt="The Blue Lagoon">
+        <h3>The Blue Lagoon</h3>
+      </a>
+
+      <a href="yasawi.html" class="card">
+        <img src="images/yasawi.png" alt="Mausoleum of Khoja Ahmed Yasawi">
         <h3>Mausoleum of Khoja Ahmed Yasawi</h3>
       </a>
     
-      <a href="medeu.html" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Medeu_Almaty.jpg" alt="Medeu Ice Rink">
-        <h3>Medeu Ice Rink</h3>
+      <a href="akmeshit.html" class="card">
+        <img src="images/akmeshit.png" alt="Akmeshit Cape">
+        <h3>Akmeshit Cape</h3>
       </a>
     
-      <a href="baikonur2.html" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Baikonur_Cosmodrome_Launch_Pad.jpg" alt="Baikonur Cosmodrome">
-        <h3>Baikonur Cosmodrome</h3>
-      </a>
-    
-      <a href="turkistan.html" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Turkistan_Mausoleum.jpg" alt="Mausoleum of Khoja Ahmed Yasawi">
-        <h3>Turkistan Mausoleum</h3>
+      <a href="otrar.html" class="card">
+        <img src="images/otrar.png" alt="Ancient city of Otrar">
+        <h3>Ancient city of Otrar</h3>
       </a>
     </div>
   </section>
 
-  <section class="section" id="top-cities">
-    <h2>Top Cities</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Altai_Mountains_Kazakhstan.jpg" alt="Altai Mountains">
-        <h3>Altai Mountains</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Borat_at_Kazakhstan_Pavilion.jpg" alt="Kazakh Culture Pavilion">
-        <h3>Kazakh Culture</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Aksu_Zhabagly.jpg" alt="Aksu-Zhabagly Reserve">
-        <h3>Aksu-Zhabagly Reserve</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Almaty_view.jpg" alt="Almaty City View">
-        <h3>Almaty</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Lake_Kolsay.jpg" alt="Kolsai Lakes">
-        <h3>Kolsai Lakes</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Charyn_Canyon.jpg" alt="Charyn Canyon">
-        <h3>Charyn Canyon</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Astana_Kazakhstan.jpg" alt="Astana">
-        <h3>Astana</h3>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Big_Almaty_Lake_2016.jpg" alt="Big Almaty Lake">
-        <h3>Big Almaty Lake</h3>
-      </div>
-    </div>
-  </section>
-
+  
   <footer class="footer">
     <hr>
     <div class="footer-content">
@@ -146,10 +194,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   body {
+    font-family: 'Roboto', sans-serif;
+
     background: white;
     color: #00263d;
     overflow-x: hidden;
@@ -176,16 +226,19 @@
   }
 
   .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: white;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: white;
+  margin: 10px auto;
+  width: 100%;
+}
+
 
   .hero-header {
     position: relative;
-    height: 100vh;
+    height: 80vh;
     background: url('images/glavn.jpg') center center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -308,6 +361,19 @@
   margin: 10px auto;
   width: 100%;
 }
+.profile-icon {
+    width: 18px;
+    height: 18px;
+    background-color: #00394f;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
 
 /* Левые ссылки */
 .nav-links {
@@ -332,31 +398,76 @@
   color: #ffffff;
 }
 
-/* Правая часть навигации */
 .nav-right {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 
-.nav-right a {
-  text-decoration: none;
-  font-weight: bold;
+.nav-right .add-btn,
+.nav-right .profile-btn {
+  display: inline-flex;  
+  justify-content: center; 
+  align-items: center;  
   padding: 8px 15px;
+  font-weight: bold;
+  text-decoration: none;
   border-radius: 20px;
-  border: 2px solid #ffffff;
   background-color: #ffffff;
   color: #00263d;
-  transition: all 0.3s ease;
+  border: 2px solid #00263d;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-.nav-right a:hover {
+.nav-right .add-btn:hover,
+.nav-right .profile-btn:hover {
   background-color: #00263d;
   color: #ffffff;
 }
 
 .section {
-    padding: 50px 20px;
-    text-align: center;
-  }
+  padding: 50px 20px;
+  text-align: center;
+}
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 90%;  
+  transform: translateX(-50%);         
+  top: 70px; 
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px ;
+  width: 200px;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
 
 </style>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'ru', // основной язык сайта
+      includedLanguages: 'en,ru,kk', // включённые языки: английский, русский, казахский
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
