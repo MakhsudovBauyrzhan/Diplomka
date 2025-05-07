@@ -20,8 +20,18 @@
 
       <div class="nav-right">
         <a href="add_tour.html" class="add-btn">Add Tour</a>
-        <a href="profile.html" class="profile-btn">Profile</a>
-      </div>
+        <a href="#" class="profile-btn" onclick="toggleDropdown()"><div class="profile-icon">K</div>Profile</a>
+
+<!-- Выпадающее меню -->
+<div id="dropdown" class="dropdown-menu">
+  <a href="trips.html">Trips</a>
+  <a href="my_announcement.html">My Announcement</a>
+  <a href="Help_center.html">Help Center</a>
+  <a href="my_reservation.html">My Reservation</a>
+  <a href="Settings.html">Settings</a>
+  <a href="#">Exit</a>
+</div>
+
     </nav>
   </header>
 
@@ -90,20 +100,20 @@
   <div class="card Burabay">
       <img src="images/burabay.jpg" alt="Western Kazakhstan">
       <div class="overlay3">
-        <h3><span><a href="#">Burabay</a></span></h3>          
+        <h3><span><a href="korshetau.html">Burabay</a></span></h3>          
       </div>
   </div>
   <div class="card Aktau">
     <img src="images/Aktau.jpg" alt="Northern Kazakhstan">
     <div class="overlay3">
-        <h3><span><a href="#">Aktau</a></span></h3>
+        <h3><span><a href="Aktau.html">Aktau</a></span></h3>
     </div>
 </div>
 
 <div class="card Astana">
     <img src="images/Astana.jpg" alt="Northern Kazakhstan">
     <div class="overlay3">
-        <h3><span><a href="#">Astana</a></span></h3>
+        <h3><span><a href="astana.html">Astana</a></span></h3>
     </div>
 </div>
 </div>
@@ -130,6 +140,25 @@
 
 </body>
 </html>
+
+
+
+<script>
+  function toggleDropdown() {
+  var menu = document.getElementById('dropdown');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.profile-btn')) {  // Use the correct class name here
+    var dropdowns = document.getElementsByClassName('dropdown-menu');
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].style.display = 'none';
+    }
+  }
+}
+
+</script>
 
 
 <style>
@@ -179,26 +208,66 @@ body {
   color: #ffffff;
 }
 
-/* Правая часть навигации */
+
 .nav-right {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 
-.nav-right a {
-  text-decoration: none;
-  font-weight: bold;
+.nav-right .add-btn,
+.nav-right .profile-btn {
+  display: inline-flex;  
+  justify-content: center; 
+  align-items: center;  
   padding: 8px 15px;
+  font-weight: bold;
+  text-decoration: none;
   border-radius: 20px;
-  border: 2px solid #ffffff;
   background-color: #ffffff;
   color: #00263d;
-  transition: all 0.3s ease;
+  border: 2px solid #00263d;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-.nav-right a:hover {
+.nav-right .add-btn:hover,
+.nav-right .profile-btn:hover {
   background-color: #00263d;
   color: #ffffff;
+}
+
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 90%;  
+  transform: translateX(-50%);         
+  top: 70px; 
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px ;
+  width: 200px;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
 }
 
   
@@ -239,6 +308,18 @@ body {
   flex-shrink: 0; /* Запрещаем сжимать кнопку */
 }
 
+.profile-icon {
+    width: 18px;
+    height: 18px;
+    background-color: #00394f;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
 
 
   /* ======================== */
@@ -585,180 +666,21 @@ p {
     text-decoration: underline;
   }
 
-
-
-/* ======================== */
-/*   Мобильная адаптация    */
-/* ======================== */
-@media (max-width: 768px) {
-
-/* Навигация */
-.navbar {
-  flex-direction: column;
-  padding: 15px 20px;
-  align-items: flex-start;
-}
-
-.nav-links {
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.nav-links a {
-  width: 100%;
-  text-align: center;
-}
-
-.nav-right {
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.nav-right a {
-  width: 100%;
-  text-align: center;
-}
-
-/* Герой-секция */
-.hero {
-  padding: 60px 20px;
-  margin-top: 100px; /* или сколько занимает header */
-
-}
-
-.hero h1 {
-  font-size: 40px;
-  letter-spacing: 3px;
-}
-
-.search-box {
-  flex-direction: column;
-  gap: 10px;
-}
-
-.search-box input,
-.search-btn {
-  width: 100%;
-}
-
-p {
-  font-size: 18px;
-}
-
-/* Подзаголовок */
-.tagline {
-  font-size: 16px;
-  padding: 0 10px;
-}
-
-.highlight {
-  display: inline-block;
-  margin: 5px 0;
-}
-
-/* Галерея */
-.gallery {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "big"
-    "west"
-    "north"
-    "east"
-    "south";
-  gap: 20px;
-  padding: 0 10px;
-}
-
-.card,
-.big {
-  grid-column: auto;
-  grid-row: auto;
-  height: auto;
-}
-
-.card img,
-.big img {
-  height: 200px;
-}
-
-.gallery2 {
-  flex-direction: column;
-  gap: 20px;
-  padding: 0 10px;
-}
-
-.Burabay,
-.Aktau,
-.Astana {
-  width: 100%;
-  height: auto;
-}
-
-/* Поездки */
-.trip-cards {
-  flex-direction: column;
-  align-items: center;
-  padding: 0 10px;
-}
-
-.trip-card {
-  width: 100%;
-}
-
-.trip-card img {
-  height: 200px;
-}
-
-.trip-card h3 {
-  font-size: 16px;
-}
-
-.trip-card p {
-  font-size: 14px;
-}
-
-.details-btn {
-  font-size: 12px;
-  width: 100%;
-}
-
-/* Перекрытия */
-.overlay p,
-.overlay2 p,
-.overlay3 p {
-  font-size: 12px;
-}
-
-.overlay a,
-.overlay2 a {
-  width: 25px;
-  height: 25px;
-  font-size: 14px;
-}
-
-.overlay2 a {
-  box-shadow: 0 0 0 10px white;
-}
-
-.overlay3 h3 span {
-  padding: 3px 6px;
-}
-
-.overlay3 h3 a {
-  font-size: 14px;
-}
-
-}
-
-
-
-
 </style>
 
-
-
-
+<script>
+  function toggleDropdown() {
+    var menu = document.getElementById('dropdown');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+  
+  window.onclick = function(event) {
+    if (!event.target.matches('.profile-btn')) {  // Use the correct class name here
+      var dropdowns = document.getElementsByClassName('dropdown-menu');
+      for (var i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].style.display = 'none';
+      }
+    }
+  }
+  
+  </script>
